@@ -1,6 +1,6 @@
 {
     "name": "@aapokiiso/hsl-congestion-db-schema",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Database models for HSL congestion tracking",
     "main": "index.js",
     "scripts": {
