@@ -61,14 +61,19 @@ function importModels(sequelize) {
     }
 }
 
-let dbInstance;
+module.exports = {
+    /** @var {Sequelize} db */
+    db: null,
 
-module.exports = function initDbInstance(dbConfig) {
-    if (!dbInstance) {
-        dbInstance = initConnection(dbConfig);
-        importModels(dbInstance);
-        dbInstance.sync();
+    /**
+     * Establish connection to the database an sync possible model updates.
+     *
+     * @param {Object} dbConfig
+     * @returns {Promise<void>}
+     */
+    async init(dbConfig) {
+        this.db = initConnection(dbConfig);
+        importModels(this.db);
+        await this.db.sync();
     }
-
-    return dbInstance;
 };
