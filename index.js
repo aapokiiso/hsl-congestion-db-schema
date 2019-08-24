@@ -71,7 +71,7 @@ module.exports = {
     db() {
         if (!dbInstance) {
             throw new Error(
-                "Database connection has not yet been initialized. Call 'init' to initialize it."
+                'Database connection has not yet been initialized. Call \'init\' to initialize it.'
             );
         }
 
