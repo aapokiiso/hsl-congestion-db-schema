@@ -1,0 +1,28 @@
+{
+    "name": "@aapokiiso/hsl-congestion-db-schema",
+    "version": "1.0.0",
+    "description": "Database models for HSL congestion tracking",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aapokiiso/hsl-congestion-db-schema.git"
+    },
+    "author": "Aapo Kiiso <aapo@kii.so>",
+    "license": "CC0-1.0",
+    "bugs": {
+        "url": "https://github.com/aapokiiso/hsl-congestion-db-schema/issues"
+    },
+    "homepage": "https://github.com/aapokiiso/hsl-congestion-db-schema#readme",
+    "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "@lamiaoy/eslint-config": "^2.0.1",
+        "eslint": "^6.2.2"
+    },
+    "dependencies": {
+        "sequelize": "^5.16.0"
+    }
+}
