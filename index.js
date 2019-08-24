@@ -61,9 +61,22 @@ function importModels(sequelize) {
     }
 }
 
+let dbInstance;
+
 module.exports = {
-    /** @var {Sequelize} db */
-    db: null,
+    /**
+     * @returns {Sequelize}
+     * @throws If the connection has not been established yet.
+     */
+    db() {
+        if (!dbInstance) {
+            throw new Error(
+                "Database connection has not yet been initialized. Call 'init' to initialize it."
+            );
+        }
+
+        return dbInstance;
+    },
 
     /**
      * Establish connection to the database an sync possible model updates.
@@ -72,8 +85,8 @@ module.exports = {
      * @returns {Promise<void>}
      */
     async init(dbConfig) {
-        this.db = initConnection(dbConfig);
-        importModels(this.db);
-        await this.db.sync();
-    }
+        dbInstance = initConnection(dbConfig);
+        importModels(dbInstance);
+        await dbInstance.sync();
+    },
 };
